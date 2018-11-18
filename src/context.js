@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-const Context = React.createContext();
+export const Context = React.createContext();
 
 const reducer = (state,action) => {
     switch (action.type){
