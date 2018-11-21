@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Consumer } from '../../context'
+
 
 class Search extends Component {
     state = {
@@ -28,39 +28,7 @@ class Search extends Component {
 
     }
     render() {
-        return (
-            <Consumer>
-                {
-                    value => {
-                        const { dispatch } = value;
-                        return (
-                            <div className='card mb-4 text-center m-5'>
-                                <h1 className="card-header text-lg">
-                                    Search for lyric <i className="fas fa-music"></i>
-                                </h1>
-                                <div className="card-body p-4">
-                                    <form>
-                                        <input
-                                            className="form-control form-control-lg "
-                                            type="text"
-                                            name="trackTitle"
-                                            placeholder="Song title here"
-                                            onChange={this.onChange}
-                                        />
-                                        <input
-                                            type="submit"
-                                            onClick={this.findTrack.bind(this, dispatch)}
-                                            className="btn btn-primary mt-4 btn-block"
-                                            value="Search Track"
-                                        />
-                                    </form>
-                                </div>
-                            </div>
-                        )
-                    }
-                }
-            </Consumer>
-        )
+        return 
     }
 }
 
