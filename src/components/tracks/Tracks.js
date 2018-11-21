@@ -15,14 +15,17 @@ const Tracks = () => {
     )} 
     else {
       return(
-      <React.Fragment>
+        <>
+        <Search />
+        <h1 className='text-center mb-4'>
+          {heading}
+        </h1>
+      <div className="row"> 
       {track_list.map(items => (
         <Track track={items.track} />
-        
-        // <h1>{items.track.album_name}</h1>
       ))}
-    
-      </React.Fragment>
+      </div>
+      </>
     );
     }
 
