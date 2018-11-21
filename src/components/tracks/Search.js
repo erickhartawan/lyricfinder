@@ -6,22 +6,17 @@ import axios from 'axios';
 const Search = () =>  {
     const [trackTitle,setTrackTitle] = useState();
 
-    const findTrack = (e) => {
+    const findTrack = (dispatch, e) => {
         e.preventDefault();
         axios
             .get(`https://infinite-lowlands-58555.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track=${trackTitle}&page_size=10&page=1&s_track_rating=desc&apikey=${process.env.REACT_APP_MM_KEY}`)
             .then(res => {
-                setTrackTitle({
-                ...trackTitle,
-                track_list: res.data.message.body.track_list,
-                Heading: "SEARCH RESULT BRUH"
+                console.log(res.data)
+                dispatch({
+                    type: "FIND_TRACK",
+                    payload: res.data.message.body.track_list
                 });
-                // console.log(res.data)
-                // dispatch({
-                //     type: "FIND_TRACK",
-                //     payload: 
-                // });
-                // setTrackTitle("")
+                setTrackTitle("")
             })
             .catch(err => console.log(err))
     }
@@ -47,7 +42,7 @@ const Search = () =>  {
                     />
                     <input
                         type="submit"
-                        onClick={findTrack}
+                        onClick={findTrack.bind(findTrack, dispatch)}
                         className="btn btn-primary mt-4 btn-block"
                         value="Search Track"
                     />
