@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export const TrackContext = React.createContext();
+const TrackContext = React.createContext();
 
 const reducer = (state,action) => {
     switch (action.type){
@@ -40,3 +40,5 @@ export class Provider extends Component {
     )
   }
 }
+
+export default TrackContext;
