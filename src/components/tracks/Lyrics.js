@@ -32,9 +32,9 @@ class Lyrics extends Component {
         .catch(err => console.log(err))
 
     }
-  render() {
-      const { track,lyrics } = this.state;
-      console.log(this.state);
+    render() {
+        const { track,lyrics } = this.state;
+        console.log(this.state);
     if (lyrics === undefined || 
         track === undefined || 
         Object.keys(track).length === 0 || 
@@ -49,7 +49,7 @@ class Lyrics extends Component {
 
                 <div className = 'card'>
                     <h5 className="card-header">
-                   {track.track_name} by the Artist <span className="text-secondary">{track.artist_name}</span>
+                    {track.track_name} by the Artist <span className="text-secondary">{track.artist_name}</span>
                     </h5>
                     <p className="card-body">
                     {lyrics.lyrics_body}
